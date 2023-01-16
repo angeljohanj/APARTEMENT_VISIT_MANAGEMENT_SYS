@@ -1,0 +1,45 @@
+﻿@model UserModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="LoginContainer">
+        <h2>Apartment Visitor Management System</h2>        
+    <div class="col-4 login-column">
+        <small>Inicia sesión para acceder al sistema</small>
+
+        <form method="post" asp-action="Login" asp-controller="User" id="loginForm"> 
+            <div class="mb-3">            
+                <span class="material-symbols-outlined">
+                    person
+                </span>
+            <input asp-for="Email" type="email" class="form-control" id="inputEmail3" placeholder="Correo">
+            <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            
+            <div class="mb-3">  
+                <span class="material-symbols-outlined">
+                    lock
+                </span>
+            <input asp-for="UserPassword" type="password" class="form-control" id="inputPassword3" placeholder="Contraseña">
+            <span asp-validation-for="UserPassword" class="text-danger"></span>
+                <button type="button" class="btn viewPassBtn" id="logIcon">
+                    <span class="material-symbols-outlined"  onclick="ShowPass()">
+                        visibility_off
+                    </span>
+                    <small onclick="ShowPass()">Ver contraseña</small>
+                </button>
+            </div>
+
+            <button type="button" class="btn log-btn" onclick="Validate()">
+                <span class="material-symbols-outlined">
+                login
+                </span>
+                Acceder
+            </button>
+            <a asp-action="" asp-controller=""><small>Olvide mi contraseña?</small></a>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+﻿@model List<ApartmentModel>
+@{
+    ViewData["Title"] = "ListApt";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row justify-content-center">
+    <h3>Administrar apartamentos</h3>
+    <div class="col-4 aptL-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Numero apartamento</th>
+                    <th>Edificio</th>
+                    <th>Estatus</th>
+                    <th>Acciones</th>
+                </tr>                
+            </thead>
+            @foreach(var i in Model){
+                <tr>
+                    <td>@i.AptId</td>
+                    <td>@i.AptNum</td>
+                    <td>@i.AptBldg</td>
+                    <td>@i.AptStatus</td>
+                    <td><a asp-action="" asp-controller="" class="btn" asp-route-aptId="@i.AptId">
+                            <span class="material-symbols-outlined">
+                                delete
+                            </span>
+                    </a>
+                        <a asp-action="" asp-controller="" class="btn" asp-route-aptId="@i.AptId">
+                            <span class="material-symbols-outlined">
+                                edit_note
+                            </span>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
